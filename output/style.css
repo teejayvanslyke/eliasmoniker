@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  font-family: Futura;
+}
+
+body {
+  background: #fff;
+}
+
+#container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: #f30;
+}
+
+a:hover {
+  color: #f90;
+}
+
+#footer {
+  clear: both;
+}
+
+#main {
+  float: left;
+  width: 500px;
+  padding: 1em;
+}
+
+#main h1 {
+  font-family: Futura;
+  font-size: 60px;
+  font-weight: normal;
+
+  line-height: 40px;
+
+  letter-spacing: -1px;
+}
+
+#main h1 span {
+  font-size: 0.5em;
+  font-style: italic;
+}
+
+#main h2 {
+  font-style: italic;
+  font-weight: normal;
+}
+
+#main p {
+  margin: 20px 0;
+  
+  font-size: 15px;
+  
+  line-height: 20px;
+}
+
+#main ul {
+  margin: 20px;
+}
+
+#main li {
+  list-style-type: square;
+
+  font-size: 15px;
+  
+  line-height: 20px;
+}
+
+#sidebar {
+  float: left;
+  width: 200px;
+  padding: 1em;
+  border-right: 1px solid #ccc;
+  text-align: right;
+}
+
+#sidebar h2 {
+  text-transform: uppercase;
+
+  font-size: 13px;
+
+  color: #333;
+
+  letter-spacing: 1px;
+
+  line-height: 30px;
+}
+
+#sidebar ul {
+  list-style-type: none;
+}
+
+#sidebar li {
+  font-size: 14px;
+
+}

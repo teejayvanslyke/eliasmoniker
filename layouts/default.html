@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @item[:title] %> - Elias Moniker</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <meta name="generator" content="nanoc 3.1.5">
+  </head>
+  <body>
+    <div id="container">
+      <div id="sidebar">
+        <h2><a href="/about.html">About the album</a></h2>
+        <h2><a href="/order.html">Preorder</a></h2>
+        <h2>Literature</h2>
+        <ul>
+          <% @site.sorted_articles[0, 10].each do |post| %>
+            <%= post.content :rep => :summary %>
+          <% end %>
+        </ul>
+      </div>
+      <div id="main">
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <a href="http://bop.fm"><img src="/images/bop.fm.png"/></a>
+      </div>
+    </div>
+  </body>
+</html>
