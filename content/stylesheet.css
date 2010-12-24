@@ -24,7 +24,7 @@ a:visited {
 }
 
 a:hover {
-  color: #f90;
+  color: #09f;
 }
 
 #footer {
@@ -42,7 +42,9 @@ a:hover {
 }
 
 #logo {
+  padding-top: 1em;
   padding-bottom: 2em;
+  padding-right: 0.5em;
 }
 h1 {
   margin-top: 18px;
@@ -98,8 +100,8 @@ t
 
 #sidebar {
   float: left;
-  width: 200px;
-  padding: 1em;
+  width: 270px;
+  padding: 0.5em;
   border-right: 1px solid #ccc;
   text-align: right;
 }
@@ -109,7 +111,22 @@ t
   color: #333;
   letter-spacing: 0.1em;
   line-height: 2.0em;
+  padding: 0.5em;
   text-transform: uppercase;
+}
+
+#sidebar h2.button {
+  border: 1px solid #ddd;
+  background-color: #eee;
+  padding: 0.5em;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+
+#sidebar h2.button:hover {
+  background-color: #fff;
+  border-color: #eee;
+  color: #09f;
 }
 
 #sidebar ul {
