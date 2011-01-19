@@ -8,20 +8,19 @@
   </head>
   <body>
     <div id="container">
+      <div id="main">
+        <%= yield %>
+      </div>
       <div id="sidebar">
+        <h2>Welcome to an exclusive preview.</h2>
+
+<object height="205" width="100%"> <param name="movie" value="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F511440&amp;show_comments=true&amp;auto_play=false&amp;show_playcount=true&amp;show_artwork=true&amp;color=273142"></param> <param name="allowscriptaccess" value="always"></param> <embed allowscriptaccess="always" height="205" src="http://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F511440&amp;show_comments=true&amp;auto_play=false&amp;show_playcount=true&amp;show_artwork=true&amp;color=273142" type="application/x-shockwave-flash" width="100%"></embed> </object>   
+        <h2>Full album available July 2011 in 12&quot; vinyl and digital formats.</h2>
+        <!--        <h2 class="button"><a href="/order/">Preorder your copy today</a></h2>-->
         <div id="logo">
-          <img src="/images/bop.fm.png"/>
+          <a href="http://bop.fm"><img src="/images/bop.fm.png"/></a>
         </div>
 
-        <h2>Welcome to an exclusive preview.</h2>
-        <br/>
-        <h2>Full album available July 2011 in 12&quot; vinyl and digital formats.</h2>
-        <br/>
-        <h2 class="button"><a href="/order/">Preorder your copy today</a></h2>
-      </div>
-      <div id="main">
-        <h1><a href="/">Elias Moniker // The A.K.A.</a></h1>
-        <%= yield %>
       </div>
       <div id="footer">
       </div>

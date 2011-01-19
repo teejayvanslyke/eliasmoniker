@@ -6,7 +6,7 @@
 }
 
 body {
-  background: #fff;
+  background: #06151f;
 }
 
 #container {
@@ -37,28 +37,24 @@ a:hover {
   padding: 1em;
 }
 
-#main h1 {
-  font-size: 2.0em;
-}
-
-#logo {
-  padding-top: 1em;
-  padding-bottom: 2em;
-  padding-right: 0.5em;
-}
 h1 {
-  margin-top: 18px;
+  color: #fff;
+  font-size: 36px;
+  padding-bottom: 0.25em;
+  font-weight: normal;
   text-transform: uppercase;
 }
 
-h1 {
+#logo {
+  padding-top: 188px;
+  padding-right: 0.5em;
+  text-align: right;
 }
 
-#main h1 span {
-  font-size: 0.5em;
-  font-style: italic;
+#logo img {
+  width: 96px;
 }
-t
+
 #main h2 {
   padding: 0em 0;
   margin: 0;
@@ -99,19 +95,22 @@ t
 }
 
 #sidebar {
+  background: #273142;
   float: left;
   width: 270px;
   padding: 0.5em;
-  border-right: 1px solid #ccc;
-  text-align: right;
+  border: 1px solid #222e3a;
+  border-top-width: 0;
+  text-align: left;
+  height: 549px;
 }
 
 #sidebar h2 {
-  font-size: 1.0em;
-  color: #333;
+  font-size: 12px;
+  color: #7a808a;
   letter-spacing: 0.1em;
   line-height: 2.0em;
-  padding: 0.5em;
+  padding: 1.0em 0;
   text-transform: uppercase;
 }
 
@@ -119,6 +118,7 @@ t
   border: 1px solid #ddd;
   background-color: #eee;
   padding: 0.5em;
+  text-align: center;
   -moz-border-radius: 12px;
   border-radius: 12px;
 }
@@ -126,7 +126,6 @@ t
 #sidebar h2.button:hover {
   background-color: #fff;
   border-color: #eee;
-  color: #09f;
 }
 
 #sidebar ul {
