@@ -1,138 +1,204 @@
-* {
+/* Global reset */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
   margin: 0;
   padding: 0;
-
-  font-family: Helvetica, Sans-serif;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
 }
 
-body {
-  background: #0C3046;
+body { 
+  line-height: 1.5; 
 }
 
-#container {
-  margin: 0 auto;
-  width: 960px;
+/* Remove annoying border on linked images. */
+a img {border: none;}
+
+/* Remove annoying border on links in Firefox */
+a:active, a:focus
+  {outline:0;}
+
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after {content: "";}
+blockquote, q {quotes: "" "";}
+
+/* Tables still need 'cellspacing="0"' in the markup. */
+table { border-collapse: separate; border-spacing: 0; }
+caption, th, td {text-align: left; font-weight: normal; }
+table, td, th {vertical-align: middle;}
+
+/* Clearing without structural markup */
+.clear
+  {display: inline-block;}   
+.clear:after
+  {content:"."; display:block; height:0; clear:both; visibility:hidden;}
+* html .clear
+  {height: 1%;}
+.clear
+  {display: block;}
+
+
+/* Corners */
+
+.tl { position:absolute; top:0; left:0; }
+.tr { position:absolute; top:0; right:0; }
+.bl { position:absolute; bottom:0; left:0; }
+.br { position:absolute; bottom:0; right:0; }
+
+
+html, body
+	{background: #111111; color: #cbd0d5; height:100%; width:100%;}
+
+/* Colours */
+
+h1
+	{color: #111;}
+h2
+	{color: #262728;}
+h3
+	{color: #9099a0;}
+h4
+	{color: #878f96;}
+a:focus, a:hover
+	{color: #a1c2e4;}
+a
+	{color: #858b95;}
+
+
+/* Layout */
+
+#header {}
+#header h1 {
+    background: url('../images/logo_stephband_grey.png') no-repeat;
+    position: absolute; top:24px; left:80px;
+    width: 532px; height: 76px;
+    overflow: hidden;
+    text-indent: -1000px;
 }
 
-a {
-  text-decoration: none;
+img.photo
+  { float: right; border:2px #666666 solid }
+img.diagram
+	{ float: right; margin: 0 -28px 1em 1em; }
+img.tl
+	{position:absolute; top:0; left:0;}
+img.tr
+	{position:absolute; top:0; right:0;}
+img.bl
+	{position:absolute; bottom:0; left:0;}
+img.br
+	{position:absolute; bottom:0; right:0;}
+	
+#parallax
+	{background:#2f3134; position:relative; overflow:hidden; }
+	 
+#button
+	{float:left; position:relative; background:#2f3134;
+	 width:60px; height:60px; margin:2.4em 0 2.4em 2.4em;}
+
+#button_remote
+	{float:left; position:relative; background:#2f3134;
+	 width:60px; height:60px; margin:2.4em 0 2.4em 3.2em;}
+	 
+#button_control
+	{float:left; position:relative; background:#2f3134;
+	 width:60px; height:60px; margin:2.4em 0 2.4em 3.2em;}
+
+h2 a:focus, h2 a:hover
+	{text-decoration:none; color:#767f8e;}
+h2 a
+	{color: #858b95;}
+	 
+/*dl.options dt
+	{ font-family: 'lucida console', 'andale mono', monospace; font-size: 1.1em; color:black;}*/
+
+/* -------------------------------------------------------------- 
+   
+   typography.css
+   * Sets up some sensible default typography.
+      
+-------------------------------------------------------------- */
+
+/* Default font settings. 
+   The font-size percentage is of 16px. (0.75 * 16px = 12px) */
+body { 
+  font-size: 88%;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-a:link,
-a:visited {
-  color: #333;
-}
 
-a:hover {
-  color: #09f;
-}
+/* Headings
+-------------------------------------------------------------- */
 
-#footer {
-  clear: both;
-}
+h1,h2,h3,h4,h5,h6 {font-weight: bold;}
 
-#main {
-  float: left;
-  width: 500px;
-  padding: 1em;
-}
+h1 { font-size: 3em;   line-height: 1em;    margin-bottom: 0em; }
+h2 { font-size: 1.6em; line-height: 1.6em;  margin-bottom: 1em;  font-weight: normal;}
+h3 { font-size: 1.25em;line-height: 1.5em; margin-bottom: 0em;  }
+h4 { font-size: 1em;   line-height: 1.4em;  margin-bottom: 0em; }
 
-h1 {
-  color: #fff;
-  font-size: 36px;
-  padding-bottom: 0.25em;
-  font-weight: normal;
-  text-transform: uppercase;
-}
-
-#logo {
-  padding-top: 188px;
-  padding-right: 0.5em;
-  text-align: right;
-}
-
-#logo img {
-  width: 96px;
-}
-
-#main h2 {
-  padding: 0em 0;
+h1 img, h2 img, h3 img, 
+h4 img, h5 img, h6 img {
   margin: 0;
-  font-weight: normal;
 }
 
-#main h3 {
-  font-weight: normal;
+
+/* Text elements
+-------------------------------------------------------------- */
+
+p           { margin: 0 0 1.5em; }
+
+a:focus,
+a:hover     { text-decoration: underline; }
+a           { text-decoration: none; }
+
+blockquote  { margin: 1.5em; color: #666; font-style: italic; }
+strong      { font-weight: bold; }
+em,dfn      { font-style: italic; }
+dfn         { font-weight: bold; }
+sup, sub    { line-height: 0; }
+
+abbr, 
+acronym     { border-bottom: 1px dotted #666; }
+address     { margin: 0 0 1.5em; font-style: italic; }
+del         { color:#666; }
+
+pre,code    { margin: 1.5em 0; white-space: pre; }
+pre,code,tt { font: 1em 'andale mono', 'lucida console', monospace; line-height: 1.5; } 
+
+
+/* Lists
+-------------------------------------------------------------- */
+
+li ul, 
+li ol       { margin:0 1.5em; }
+ul, ol      { margin: 0 1.5em 1.5em 1.5em; }
+dl ul, ul ul,
+ul dl, dl dl{ margin: 0.4em 1.5em 0.4em 1.5em; }
+
+ul          { list-style-type: disc; }
+ol          { list-style-type: decimal; }
+
+dl          { margin: 0 0 1.5em 0; }
+dl dt       { font-weight: bold; }
+dd          { margin-left: 1.5em; }
+
+.parallax-viewport {
+    position: relative;     /* relative, absolute, fixed */
+    overflow: hidden;
 }
-
-#main h4 {
-  padding: 0.5em 0;
-  font-weight: normal;
+.parallax-layer {
+    position: absolute;
 }
+      
 
-#main h1, h2, h3, h4 { 
-  letter-spacing: -0.1em;
-}
 
-#main p {
-  margin: 20px 0;
-  
-  font-size: 15px;
-  
-  line-height: 20px;
-}
-
-#main ul {
-  margin: 20px;
-}
-
-#main li {
-  list-style-type: square;
-
-  font-size: 15px;
-  
-  line-height: 20px;
-}
-
-#sidebar {
-  background: #273142;
-  float: left;
-  width: 270px;
-  padding: 0.5em;
-  border: 1px solid #222e3a;
-  border-top-width: 0;
-  text-align: left;
-  height: 549px;
-}
-
-#sidebar h2 {
-  font-size: 12px;
-  color: #7a808a;
-  letter-spacing: 0.1em;
-  line-height: 2.0em;
-  padding: 1.0em 0;
-  text-transform: uppercase;
-}
-
-#sidebar h2.button {
-  border: 1px solid #ddd;
-  background-color: #eee;
-  padding: 0.5em;
-  text-align: center;
-  -moz-border-radius: 12px;
-  border-radius: 12px;
-}
-
-#sidebar h2.button:hover {
-  background-color: #fff;
-  border-color: #eee;
-}
-
-#sidebar ul {
-  list-style-type: none;
-}
-
-#sidebar li {
-  font-size: 14px;
-
-}

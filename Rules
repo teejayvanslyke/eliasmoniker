@@ -15,7 +15,7 @@ compile '/javascripts/*/' do
 end
 
 route '/javascripts/*/' do
-  item.identifier
+  item.identifier.chop + '.' + item[:extension]
 end
 
 compile '/images/*/' do
