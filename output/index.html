@@ -13,11 +13,16 @@
 
     @import "/style.css";
 
+    #content {
+      margin: 0 auto;
+      width: 960px;
+    }
+
     #port {
-        background: rgb(47, 49, 52);
+        background: #000000;
         overflow: hidden;
         position: relative;
-        width: 960px; height: 480px;
+        width: 960px; height: 520px;
     }
 
 </style>
@@ -41,7 +46,7 @@
         
         <!-- Seven image layers, each layer slightly bigger than the one behind, making 'closer' layers move faster. -->
         <div class="parallax-layer" style="width: 960px; height: 500px;">
-          <img src="/images/background.png" alt="" style="position: absolute; top: -1000px; left:-1000px; "/>
+          <img src="/images/background.png" alt="" style="position: absolute; top: -150px; left:-200px; width: 1274; height: 960px; "/>
         </div>
         <div class="parallax-layer" style="width: 960px; height: 490px;">
           <img src="/images/cover.png" alt="" style="position: absolute; left: 10px;"/>
@@ -88,8 +93,6 @@ activeOutside: true
       });
 
     function resizeViewport() {
-    $('#port').css('width', ($(window).width())+'px').
-    css('height', $(window).height()+'px');
     }
     $(window).resize(resizeViewport);
 
