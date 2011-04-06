@@ -208,4 +208,12 @@ dd          { margin-left: 1.5em; }
 }
 .song-title {
   background-image: url(/images/song-titles.png);
+  cursor: pointer;
 }
+
+#paper {
+  position:absolute;
+  top: 0;
+  z-index:10;
+}
+

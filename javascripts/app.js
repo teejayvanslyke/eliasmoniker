@@ -9,12 +9,11 @@ var Player = {
       pause: '#pause_button'
     },
       progress: function(event) {
-        var status = event.jPlayer.status;
       },
       ended: function() {
-        var nextSongElement = $('#'+currentSong['song_id']).next();
+        var nextSongElement = $('.song-title.current:first').next();
         if (nextSongElement.length > 0) {
-          window.location.href = nextSongElement.find('a.play').attr('href');
+          Player.play(nextSongElement.data('url'));
         }
              }
     });
@@ -27,8 +26,21 @@ var Player = {
 
 };
 
+var paper = null;
 
 $(function(){
+
+  paper = Raphael('paper', 960, 992);
+
+
+  function balloon() {
+    var color = [ 'blue', 'teal', 'green', 'purple' ][Math.floor(Math.random() * 4)];
+    var size  = [ 64, 128, 256 ][Math.floor(Math.random() * 3)];
+    var balloon =  paper.image('/images/balloon-'+color+'-256.png', Math.floor(Math.random() * 960), 960+size, size, size);
+    balloon.animate({y: -1 * size}, 15000, '<', function() { balloon.remove() } );
+  }
+
+  setInterval(balloon, 1000);
 
   $('#background').hide().fadeIn(2000);
 
@@ -42,6 +54,7 @@ $(function(){
 
   $('#port').mouseenter();
 
+  $([ '#play_button', '#pause_button' ]).css('z-index', '10000');
   $('.song-title').css('z-index', '10000').mouseover(function() {
     $(this).addClass('hover');
   }).mouseout(function() {

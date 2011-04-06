@@ -54,10 +54,10 @@
           <img src="/images/background.png" id="background" alt="" style="position: absolute; top: -100px; left:-250px; width: 1274px; height: 960px; "/>
         </div>
         <div class="parallax-layer" style="width: 960px; height: 960px;">
-          <img src="/images/cover.png" alt="" style="position: absolute; top: 32px; left: 10px;"/>
+          <img src="/images/cover.png" alt="" style="position: absolute; z-index:10000; top: 32px; left: 10px;"/>
         </div>
         <div class="parallax-layer" style="width: 960px; height: 960px;">
-          <img src="/images/social-networks.png" alt="" style="position: absolute; top: 452px; left: 0px;"/>
+          <img src="/images/social-networks.png" alt="" style="z-index:10000; position: absolute; top: 452px; left: 0px;"/>
         </div>
         <div class="parallax-layer" style="width: 960px; height: 935px;">
           <div class="song-title"
@@ -108,11 +108,14 @@
 
       </div>
 
+      <div id="paper"></div>
     </div>
+
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/jquery.jparallax.min.js"></script>
     <script type="text/javascript" src="/javascripts/jplayer.min.js"></script>
+    <script type="text/javascript" src="/javascripts/raphael.js"></script>
     <script type="text/javascript" src="/javascripts/app.js"></script>
 
         <!-- Enable png transparency in IE6 -->
