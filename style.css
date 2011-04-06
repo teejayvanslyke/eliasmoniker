@@ -200,5 +200,12 @@ dd          { margin-left: 1.5em; }
     position: absolute;
 }
       
-
-
+.song-title.current {
+  background-image: url(/images/song-titles-selected.png);
+}
+.song-title.hover {
+  background-image: url(/images/song-titles-hover.png);
+}
+.song-title {
+  background-image: url(/images/song-titles.png);
+}
