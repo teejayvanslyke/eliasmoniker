@@ -14,7 +14,7 @@ $(function(){
                     updateProgressBar(event.jPlayer.status.currentTime / event.jPlayer.status.duration);
         },
         ended: function() {
-          var nextSongElement = $('.song-title.current:first').next();
+          var nextSongElement = $('.current').next();
           if (nextSongElement.length > 0) {
             Player.play(nextSongElement.data('url'));
           }
@@ -115,6 +115,10 @@ $(function(){
   */
 
   Player.initializeJPlayer();
+
+  $('.song-title:first').addClass('current');
+  var currentSong = $('.song-title.current');
+  $('#jplayer').jPlayer('setMedia', { mp3: currentSong.data('url') });
 
   $('#port').mouseenter();
 
