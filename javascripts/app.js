@@ -42,7 +42,7 @@ $(function(){
   }
 
   var gears = {};
-  gears.player = gear(848, 152, 200);
+  gears.player = gear(842, 145, 180);
   gears.g1 = gear(732, 72, 100);
   gears.g2 = gear(610, 100, 170);
   gears.g3 = gear(490, 150, 100);
@@ -64,16 +64,16 @@ $(function(){
     }
 
     updateGear(gears.player, 1);
-    updateGear(gears.g1, 2);
+    updateGear(gears.g1, -2);
     updateGear(gears.g2, 2);
-    updateGear(gears.g3, 2);
+    updateGear(gears.g3, -2);
     updateGear(gears.g4, 4);
-    updateGear(gears.g5, 4);
-    updateGear(gears.g6, 2);
+    updateGear(gears.g5, -4);
+    updateGear(gears.g6, -2);
     updateGear(gears.g7, 4);
-    updateGear(gears.g8, 2);
+    updateGear(gears.g8, -2);
     updateGear(gears.g9, 2);
-    updateGear(gears.g10, 2);
+    updateGear(gears.g10, -2);
   }
 
   function balloon() {
