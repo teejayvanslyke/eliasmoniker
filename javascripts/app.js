@@ -93,12 +93,10 @@ $(function(){
   $('#background').hide().fadeIn(2000);
 
   // Declare parallax on layers
-  /*
   jQuery('.parallax-layer').parallax({
     mouseport: jQuery("#port"),
     activeOutside: true
   });
-  */
 
   Player.initializeJPlayer();
 

@@ -40,72 +40,51 @@
   </head>
 
   <body onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
-    <div id="jplayer"></div>
-
-    <div id="header">
-    </div>
 
     <div id="content">
 
       <div id="port">
-
         <!-- Seven image layers, each layer slightly bigger than the one behind, making 'closer' layers move faster. -->
-        <div class="parallax-layer" style="width: 960px; height: 960px;">
-          <img src="/images/background.png" id="background" alt="" style="position: absolute; top: -50px; left:-250px; width: 1274px; height: 960px; "/>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 960px;">
-          <img src="/images/cover.png" alt="" style="position: absolute; z-index:10000; top: 32px; left: 10px;"/>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 960px;">
-          <img src="/images/social-networks.png" alt="" style="z-index:10000; position: absolute; top: 452px; left: 0px;"/>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 935px;">
+        <div class="parallax-layer" style="width: 980px; height: 980px;">
           <div class="song-title"
             data-url="http://eliasmoniker.com.s3.amazonaws.com/mp3/The%20Urge.mp3" 
             style="  background-position: -84px 0px; width: 121px; height: 37px; position: absolute; left: 350px; top: 62px;"></div>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 925px;">
           <div class="song-title"
             data-url="http://eliasmoniker.com.s3.amazonaws.com/mp3/Flip.mp3" 
             style="  background-position: -166px -40px; width: 63px; height: 37px; position: absolute; left: 400px; top: 92px;"></div>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 915px;">
           <div class="song-title"  
             data-url="http://eliasmoniker.com.s3.amazonaws.com/mp3/Do%20It%20Like%20This.mp3" 
             style="  background-position: 0px -73px; width: 162px; height: 54px; position: absolute; left: 420px; top: 124px;"></div>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 905px;">
           <div class="song-title"  
             data-url="http://eliasmoniker.com.s3.amazonaws.com/mp3/Fresh%20Off%20The%20Press.mp3" 
             style="  background-position: -164px -123px; width: 241px; height: 66px; position: absolute; left: 400px; top: 182px;"></div>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 895px;">
           <div class="song-title"  
             data-url="http://eliasmoniker.com.s3.amazonaws.com/mp3/With%20You.mp3" 
             style="  background-position: -28px -168px; width: 124px; height: 34px; position: absolute; left: 620px; top: 242px;"></div>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 885px;">
           <div class="song-title"  
             data-url="http://eliasmoniker.com.s3.amazonaws.com/mp3/Good%20Boy.mp3" 
             style="  background-position: -132px -224px; width: 137px; height: 50px; position: absolute; left: 650px; top: 278px;"></div>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 875px;">
           <div class="song-title"  
             data-url="http://eliasmoniker.com.s3.amazonaws.com/mp3/Freak%20Wit%20Me.mp3" 
             style="  background-position: -18px -280px; width: 159px; height: 43px; position: absolute; left: 720px; top: 332px;"></div>
-        </div>
-        <div class="parallax-layer" style="width: 960px; height: 865px;">
           <div class="song-title"  
             data-url="http://eliasmoniker.com.s3.amazonaws.com/mp3/Cartoon%20Dream.mp3" 
             style="  background-position: -126px -321px; width: 201px; height: 46px; position: absolute; left: 750px; top: 400px;"></div>
+          <div id="progress">
+            <div class="" id="pause_button" ></div>
+            <div class="" id="play_button"></div>
+          </div>
+          <div id="paper"></div>
         </div>
-        <div id="progress">
-          <div class="" id="pause_button" ></div>
-          <div class="" id="play_button"></div>
+        <div class="parallax-layer" style="width: 960px; height: 960px;">
+          <img src="/images/cover.png" alt="" style="position: absolute; z-index:5; top: 32px; left: 10px;"/>
+          <img src="/images/social-networks.png" alt="" style="z-index:10000; position: absolute; top: 452px; left: 0px;"/>
+        </div>
+        <div class="parallax-layer" style="width: 900px; height: 900px;">
+          <img src="/images/background.png" id="background" alt="" style="position: absolute; top: -50px; left:-250px; width: 1274px; height: 960px; "/>
         </div>
 
       </div>
-      <div id="paper"></div>
     </div>
 
 
@@ -137,6 +116,7 @@
 
 </script>
     
+    <div id="jplayer"></div>
       </body>
     </html>
 
