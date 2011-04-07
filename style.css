@@ -205,7 +205,6 @@ dd          { margin-left: 1.5em; }
 #paper {
   position:absolute;
   top: 0px;
-  z-index:10;
 }
 
 #progress {
