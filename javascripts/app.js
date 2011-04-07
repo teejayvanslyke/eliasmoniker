@@ -56,11 +56,14 @@ $(function(){
   gears.g10 = gear(845, 426, 100);
 
   function updateProgressBar(percent) {
-    var speed = 8;
+    var speed = 4.0;
 
     function updateGear(gear, coef) {
-      gear.stop();
-      gear.animate({ 'rotation': Math.floor(percent * 360 * coef * speed) }, 500, '<');
+      var degrees = Math.floor(percent * 360 * coef * speed);
+      if (isNaN(degrees)) return;
+      console.log(degrees);
+      gear.animate({ 'rotation': degrees }, 1000, '>');
+      //gear.attr({ 'rotation': degrees });
     }
 
     updateGear(gears.player, 1);
@@ -83,23 +86,6 @@ $(function(){
     balloon.attr({ 'z-index': (size == 64 ? -1000 : 0) });
     balloon.toBack();
     balloon.animate({y: -1 * size}, 20000, '<', function() { balloon.remove() } );
-
-    var cycles = 0;
-    function rotateLeft() {
-      if (cycles < 5) {
-        balloon.animate({rotation: -10}, 5000, '>', rotateRight);
-        cycles += 1;
-      }
-    }
-
-    function rotateRight() {
-      if (cycles < 5) {
-        balloon.animate({rotation: 10}, 5000, '>', rotateLeft);
-        cycles += 1;
-      }
-    }
-
-    rotateLeft();
   }
 
   setInterval(balloon, 5000);
@@ -131,7 +117,8 @@ $(function(){
   }).click(function() {
     $('.song-title').removeClass('current');
     $(this).addClass('current');
-    Player.play($(this).data('url'));
+    $('#jplayer').jPlayer('setMedia', { mp3: $(this).data('url') });
+      $('#jplayer').jPlayer('play');
   });
 
 
