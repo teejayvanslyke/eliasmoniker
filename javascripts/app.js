@@ -16,6 +16,8 @@ $(function(){
         ended: function() {
           var nextSongElement = $('.current').next();
           if (nextSongElement.length > 0) {
+            $('.song-title').removeClass('current');
+            nextSongElement.addClass('current');
             Player.play(nextSongElement.data('url'));
           }
                }
