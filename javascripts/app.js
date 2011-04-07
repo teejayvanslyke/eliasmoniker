@@ -35,7 +35,8 @@ $(function(){
   paper = Raphael('paper', 960, 992);
 
   function gear(x, y, size) {
-    var gear = paper.image('/images/gear.png', x - (size / 2), y - (size / 2), size, size);
+    var color = ['blue', 'purple', 'green', 'orange', 'grey'][Math.floor(Math.random() * 5)];
+    var gear = paper.image('/images/gear-grey.png', x - (size / 2), y - (size / 2), size, size);
     gear.attr({ 'z-index': Math.floor(Math.random() * 100) });
     return gear;
   }
@@ -117,7 +118,8 @@ $(function(){
 
   $('#port').mouseenter();
 
-  $('#progress').css('z-index', '15000');
+  $('#play_button, #pause_button').css('z-index', '12000');
+
   $('.song-title').css('z-index', '10000').mouseover(function() {
     $(this).addClass('hover');
   }).mouseout(function() {
