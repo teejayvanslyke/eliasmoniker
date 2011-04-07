@@ -76,15 +76,6 @@ a
 
 /* Layout */
 
-#header {}
-#header h1 {
-    background: url('../images/logo_stephband_grey.png') no-repeat;
-    position: absolute; top:24px; left:80px;
-    width: 532px; height: 76px;
-    overflow: hidden;
-    text-indent: -1000px;
-}
-
 img.photo
   { float: right; border:2px #666666 solid }
 img.diagram
@@ -213,7 +204,11 @@ dd          { margin-left: 1.5em; }
 
 #paper {
   position:absolute;
-  top: 0;
+  top: 0px;
+}
+
+#jplayer {
+  display: none;
 }
 
 #progress {

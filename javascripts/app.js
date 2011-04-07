@@ -106,8 +106,6 @@ $(function(){
   var currentSong = $('.song-title.current');
   $('#jplayer').jPlayer('setMedia', { mp3: currentSong.data('url') });
 
-  $('#port').mouseenter();
-
   $('#play_button, #pause_button').css('z-index', '12000');
 
   $('.song-title').css('z-index', '10000').mouseover(function() {
