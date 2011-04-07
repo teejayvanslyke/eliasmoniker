@@ -108,6 +108,8 @@ $(function(){
 
   $('#play_button, #pause_button').css('z-index', '12000');
 
+  $('#port').mouseenter();
+
   $('.song-title').css('z-index', '10000').mouseover(function() {
     $(this).addClass('hover');
   }).mouseout(function() {
