@@ -39,7 +39,6 @@ $(function(){
   function gear(x, y, size) {
     var color = ['blue', 'purple', 'green', 'orange', 'grey'][Math.floor(Math.random() * 5)];
     var gear = paper.image('/images/gear-grey.png', x - (size / 2), y - (size / 2), size, size);
-    gear.attr({ 'z-index': Math.floor(Math.random() * 100) });
     return gear;
   }
 
@@ -85,7 +84,6 @@ $(function(){
     var color = [ 'blue', 'teal', 'green', 'purple' ][Math.floor(Math.random() * 4)];
     var size  = [ 64, 128, 256 ][Math.floor(Math.random() * 3)];
     var balloon =  paper.image('/images/balloon-'+color+'-256.png', Math.floor(Math.random() * 960), 960+size, size, size);
-    balloon.attr({ 'z-index': (size == 64 ? -1000 : 0) });
     balloon.toBack();
     balloon.animate({y: -1 * size}, 20000, '<', function() { balloon.remove() } );
   }
@@ -106,49 +104,118 @@ $(function(){
   var currentSong = $('.song-title.current');
   $('#jplayer').jPlayer('setMedia', { mp3: currentSong.data('url') });
 
-  $('#play_button, #pause_button').css('z-index', '12000');
-
   $('#port').mouseenter();
 
   function tv() {
-    var enlarged = false;
+    var $this = this;
 
-    $('#tv').css({
+    this.enlarged = false;
+    
+    var element = $('#tv');
+
+    this.show = function() {
+      element.attr('src', '/images/tv-large-light.png');
+      element.animate({
+        width: '700px',
+        height: '520px',
+        top: '32px',
+        left: '130px',
+        'z-index': 10000
+      }, 100);
+      theShoppingCart.hide();
+    };
+
+    this.hide = function() {
+      element.attr('src', '/images/tv-small-dark.png');
+      element.animate({
+        width: '339px',
+        height: '250px',
+        top: '602px',
+        left: '600px',
+        'z-index': 4
+      }, 100);
+      $this.enlarged = false;
+    };
+
+    element.css({
       width: '339px',
       height: '250px',
       top: '602px',
-      left: '600px'
+      left: '600px',
+      'z-index': 4
     }).mouseover(function() {
       $(this).attr('src', '/images/tv-large-light.png');
     }).mouseout(function() {
-      if (enlarged) return;
+      if ($this.enlarged) return;
       $(this).attr('src', '/images/tv-small-dark.png');
     }).click(function() {
-      if (!enlarged) {
-        $(this).attr('src', '/images/tv-large-light.png');
-        $(this).animate({
-          width: '700px',
-          height: '520px',
-          top: '150px',
-          left: '150px'
-        }, 100);
+      if (!$this.enlarged) {
+        $this.show();
       }
       else {
-        $(this).attr('src', '/images/tv-small-dark.png');
-        $(this).animate({
-          width: '339px',
-          height: '250px',
-          top: '602px',
-          left: '600px'
-        }, 100);
+        $this.hide();
       }
-      enlarged = !enlarged;
+      $this.enlarged = !$this.enlarged;
     });
   }
 
-  tv();
+  var theTV = new tv();
 
-  $('.song-title').css('z-index', '10000').mouseover(function() {
+  function shoppingCart() {
+    var $this = this;
+    this.enlarged = false;
+    var element = $('#shopping_cart');
+    this.show = function() {
+      element.attr('src', '/images/shopping-cart-large.png');
+      element.animate({
+        width: '644px',
+        height: '657px',
+        top: '32px',
+        left: '130px',
+        'z-index': 10000
+      }, 100);
+      theTV.hide();
+    };
+
+    this.hide = function() {
+      element.attr('src', '/images/shopping-cart-small.png');
+      element.animate({
+        width: '324px',
+        height: '331px',
+        top: '570px',
+        left: '20px',
+        'z-index': 4
+      }, 100);
+      $this.enlarged = false;
+    };
+
+    $('#shopping_cart').css({
+      width: '324px',
+      height: '331px',
+      top: '570px',
+      left: '20px',
+      'z-index': 4
+    }).mouseover(function() {
+      $(this).attr('src', '/images/shopping-cart-large.png');
+    }).mouseout(function() {
+      if ($this.enlarged) return;
+      $(this).attr('src', '/images/shopping-cart-small.png');
+    }).click(function() {
+      if (!$this.enlarged) {
+        $this.show();
+      }
+      else {
+        $this.hide();
+      }
+      $this.enlarged = !$this.enlarged;
+    });
+
+    return this;
+  }
+
+  var theShoppingCart = new shoppingCart();
+
+  $('.song-title').mouseover(function() {
     $(this).addClass('hover');
   }).mouseout(function() {
     $(this).removeClass('hover');
@@ -159,6 +226,13 @@ $(function(){
       $('#jplayer').jPlayer('play');
   });
 
+  $('#background_wrapper').css({ 'z-index': 0 });
+  $('#cover').css({ 'z-index': 1 });
+  $('#playlist').css({ 'z-index': 4 });
+  $('#paper_wrapper').css({ 'z-index': 3 });
+
+  $('#tv').css({ 'z-index': 4 });
+  $('#shopping_cart').css({ 'z-index': 4 });
 
 });
 
