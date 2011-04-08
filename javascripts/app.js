@@ -81,8 +81,8 @@ $(function(){
   }
 
   function balloon() {
-    var color = [ 'blue', 'teal', 'green', 'purple' ][Math.floor(Math.random() * 4)];
-    var size  = [ 64, 128, 256 ][Math.floor(Math.random() * 3)];
+    var color = [ 'blue', 'green', 'purple' ][Math.floor(Math.random() * 3)];
+    var size  = [ 32, 64, 128 ][Math.floor(Math.random() * 3)];
     var balloon =  paper.image('/images/balloon-'+color+'-256.png', Math.floor(Math.random() * 960), 960+size, size, size);
     balloon.toBack();
     balloon.animate({y: -1 * size}, 20000, '<', function() { balloon.remove() } );
