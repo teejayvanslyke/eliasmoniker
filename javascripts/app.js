@@ -123,6 +123,7 @@ $(function(){
         'z-index': 10000
       }, 100);
       theShoppingCart.hide();
+      $this.enlarged = true;
     };
 
     this.hide = function() {
@@ -155,7 +156,6 @@ $(function(){
       else {
         $this.hide();
       }
-      $this.enlarged = !$this.enlarged;
     });
   }
 
@@ -165,6 +165,9 @@ $(function(){
     var $this = this;
     this.enlarged = false;
     var element = $('#shopping_cart');
+
+    $('#paypal').hide();
+
     this.show = function() {
       element.attr('src', '/images/shopping-cart-large.png');
       element.animate({
@@ -173,12 +176,16 @@ $(function(){
         top: '32px',
         left: '130px',
         'z-index': 10000
-      }, 100);
+      }, 100, function() {
+        $('#paypal').fadeIn();
+      });
       theTV.hide();
+      $this.enlarged = true;
     };
 
     this.hide = function() {
       element.attr('src', '/images/shopping-cart-small.png');
+      $('#paypal').hide();
       element.animate({
         width: '324px',
         height: '331px',
@@ -207,7 +214,6 @@ $(function(){
       else {
         $this.hide();
       }
-      $this.enlarged = !$this.enlarged;
     });
 
     return this;
@@ -233,6 +239,10 @@ $(function(){
 
   $('#tv').css({ 'z-index': 4 });
   $('#shopping_cart').css({ 'z-index': 4 });
+  $('#paypal').css({ 'z-index': 10001 });
 
+  Cufon.replace('h2');
+  Cufon.replace('h3');
+  Cufon.replace('h4');
 });
 
