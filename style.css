@@ -228,3 +228,13 @@ dd          { margin-left: 1.5em; }
   left: 360px;
   top: 168px;
 }
+
+#loader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 20000;
+  background-color: #000;
+  text-align: center;
+  padding-top:200px;
+}

@@ -1,5 +1,40 @@
-$(function(){
+(function($) {
+  var cache = [];
+  // Arguments are image paths relative to the current page.
+  $.preloadImages = function() {
+    var args_len = arguments.length;
+    for (var i = args_len; i--;) {
+      var cacheImage = document.createElement('img');
+      cacheImage.src = arguments[i];
+      cache.push(cacheImage);
+    }
+  }
+})(jQuery)
 
+
+$.preloadImages(
+  "/images/background.png",
+  "/images/balloon-blue-256.png",
+  "/images/balloon-green-256.png",
+  "/images/balloon-purple-256.png",
+  "/images/bop.fm.png",
+  "/images/cover.png",
+  "/images/cover5.jpeg",
+  "/images/gear-grey.png",
+  "/images/header-text.png",
+  "/images/play-pause.png",
+  "/images/shopping-cart-large.png",
+  "/images/shopping-cart-small.png",
+  "/images/social-networks.png",
+  "/images/song-titles-hover.png",
+  "/images/song-titles-selected.png",
+  "/images/song-titles.png",
+  "/images/soon.png",
+  "/images/tv-large-light.png",
+  "/images/tv-small-dark.png"
+  )
+
+$(function(){
   var Player = {
 
     initializeJPlayer: function() {
@@ -62,7 +97,6 @@ $(function(){
     function updateGear(gear, coef) {
       var degrees = Math.floor(percent * 360 * coef * speed);
       if (isNaN(degrees)) return;
-      console.log(degrees);
       gear.animate({ 'rotation': degrees }, 1000, '>');
       //gear.attr({ 'rotation': degrees });
     }
@@ -122,6 +156,7 @@ $(function(){
         left: '130px',
         'z-index': 10000
       }, 100);
+      $('html, body').animate({scrollTop:0}, 100);
       theShoppingCart.hide();
       $this.enlarged = true;
     };
@@ -179,6 +214,7 @@ $(function(){
       }, 100, function() {
         $('#paypal').fadeIn();
       });
+      $('html, body').animate({scrollTop:0}, 100);
       theTV.hide();
       $this.enlarged = true;
     };
@@ -244,5 +280,7 @@ $(function(){
   Cufon.replace('h2');
   Cufon.replace('h3');
   Cufon.replace('h4');
+
+  $('#loader').hide();
 });
 
