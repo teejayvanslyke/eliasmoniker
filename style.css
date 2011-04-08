@@ -238,3 +238,14 @@ dd          { margin-left: 1.5em; }
   text-align: center;
   padding-top:200px;
 }
+
+#tv_canvas {
+  position: absolute;
+  width: 430px;
+  height: 330px;
+  left: 200px;
+  top: 92px;
+  z-index: 9999;
+
+  display: none;
+}

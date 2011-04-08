@@ -117,7 +117,7 @@ $(function(){
   function balloon() {
     var color = [ 'blue', 'green', 'purple' ][Math.floor(Math.random() * 3)];
     var size  = [ 32, 64, 128 ][Math.floor(Math.random() * 3)];
-    var balloon =  paper.image('/images/balloon-'+color+'-256.png', Math.floor(Math.random() * 960), 960+size, size, size);
+    var balloon =  paper.image('/images/balloon-'+color+'-256.png', Math.floor(Math.random() * 704) + 256, 960+size, size, size);
     balloon.toBack();
     balloon.animate({y: -1 * size}, 20000, '<', function() { balloon.remove() } );
   }
@@ -145,25 +145,32 @@ $(function(){
 
     this.enlarged = false;
     
-    var element = $('#tv');
+    var element = $('#tv, #tv_screen, #tv_canvas');
 
     this.show = function() {
-      element.attr('src', '/images/tv-large-light.png');
-      element.animate({
+      $('#tv').attr('src', '/images/tv-large-light.png');
+      $('#tv, #tv_screen').animate({
         width: '700px',
         height: '520px',
         top: '32px',
         left: '130px',
-        'z-index': 10000
-      }, 100);
+      }, 100, function() { 
+        $('#tv_canvas').fadeIn(100);
+      });
+
+      $('#tv').css({ 'z-index': 10000 });
+      $('#tv_canvas').css({ 'z-index': 9999 });
+      $('#tv_screen').css({ 'z-index': 9998 });
+
       $('html, body').animate({scrollTop:0}, 100);
       theShoppingCart.hide();
       $this.enlarged = true;
     };
 
     this.hide = function() {
-      element.attr('src', '/images/tv-small-dark.png');
-      element.animate({
+      $('#tv').attr('src', '/images/tv-small-dark.png');
+      $('#tv_canvas').hide();
+      $('#tv, #tv_screen').animate({
         width: '339px',
         height: '250px',
         top: '602px',
@@ -173,7 +180,7 @@ $(function(){
       $this.enlarged = false;
     };
 
-    element.css({
+    $('#tv, #tv_screen').css({
       width: '339px',
       height: '250px',
       top: '602px',
@@ -269,7 +276,7 @@ $(function(){
   });
 
   $('#background_wrapper').css({ 'z-index': 0 });
-  $('#cover').css({ 'z-index': 1 });
+  $('#cover').css({ 'z-index': 3 });
   $('#playlist').css({ 'z-index': 4 });
   $('#paper_wrapper').css({ 'z-index': 3 });
 
