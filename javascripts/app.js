@@ -110,6 +110,44 @@ $(function(){
 
   $('#port').mouseenter();
 
+  function tv() {
+    var enlarged = false;
+
+    $('#tv').css({
+      width: '339px',
+      height: '250px',
+      top: '602px',
+      left: '600px'
+    }).mouseover(function() {
+      $(this).attr('src', '/images/tv-large-light.png');
+    }).mouseout(function() {
+      if (enlarged) return;
+      $(this).attr('src', '/images/tv-small-dark.png');
+    }).click(function() {
+      if (!enlarged) {
+        $(this).attr('src', '/images/tv-large-light.png');
+        $(this).animate({
+          width: '700px',
+          height: '520px',
+          top: '150px',
+          left: '150px'
+        }, 100);
+      }
+      else {
+        $(this).attr('src', '/images/tv-small-dark.png');
+        $(this).animate({
+          width: '339px',
+          height: '250px',
+          top: '602px',
+          left: '600px'
+        }, 100);
+      }
+      enlarged = !enlarged;
+    });
+  }
+
+  tv();
+
   $('.song-title').css('z-index', '10000').mouseover(function() {
     $(this).addClass('hover');
   }).mouseout(function() {
