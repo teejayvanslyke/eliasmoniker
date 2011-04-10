@@ -69,7 +69,7 @@ $(function(){
   var paper = null;
 
 
-  paper = Raphael('paper', 960, 992);
+  paper = Raphael('paper', 960, 720);
 
   function gear(x, y, size) {
     var color = ['blue', 'purple', 'green', 'orange', 'grey'][Math.floor(Math.random() * 5)];
@@ -147,12 +147,20 @@ $(function(){
     
     var element = $('#tv, #tv_screen, #tv_canvas');
 
+    this.defaultAttributes = {
+      width: '170px',
+      height: '125px',
+      bottom: '32px',
+      left: '222px',
+      'z-index': 4
+    };
+
     this.show = function() {
       $('#tv').attr('src', '/images/tv-large-light.png');
       $('#tv, #tv_screen').animate({
         width: '700px',
         height: '520px',
-        top: '32px',
+        bottom: '128px',
         left: '130px',
       }, 100, function() { 
         $('#tv_canvas').fadeIn(100);
@@ -170,23 +178,11 @@ $(function(){
     this.hide = function() {
       $('#tv').attr('src', '/images/tv-small-dark.png');
       $('#tv_canvas').hide();
-      $('#tv, #tv_screen').animate({
-        width: '339px',
-        height: '250px',
-        top: '602px',
-        left: '600px',
-        'z-index': 4
-      }, 100);
+      $('#tv, #tv_screen').animate(this.defaultAttributes, 100);
       $this.enlarged = false;
     };
 
-    $('#tv, #tv_screen').css({
-      width: '339px',
-      height: '250px',
-      top: '602px',
-      left: '600px',
-      'z-index': 4
-    }).mouseover(function() {
+    $('#tv, #tv_screen').css(this.defaultAttributes).mouseover(function() {
       $(this).attr('src', '/images/tv-large-light.png');
     }).mouseout(function() {
       if ($this.enlarged) return;
@@ -210,12 +206,19 @@ $(function(){
 
     $('#paypal').hide();
 
+    this.defaultAttributes = {
+      width: '162px',
+      height: '166px',
+      bottom: '16px',
+      left: '20px',
+      'z-index': 4
+    };
+
     this.show = function() {
       element.attr('src', '/images/shopping-cart-large.png');
       element.animate({
         width: '644px',
         height: '657px',
-        top: '32px',
         left: '130px',
         'z-index': 10000
       }, 100, function() {
@@ -229,23 +232,11 @@ $(function(){
     this.hide = function() {
       element.attr('src', '/images/shopping-cart-small.png');
       $('#paypal').hide();
-      element.animate({
-        width: '324px',
-        height: '331px',
-        top: '570px',
-        left: '20px',
-        'z-index': 4
-      }, 100);
+      element.animate(this.defaultAttributes, 100);
       $this.enlarged = false;
     };
 
-    $('#shopping_cart').css({
-      width: '324px',
-      height: '331px',
-      top: '570px',
-      left: '20px',
-      'z-index': 4
-    }).mouseover(function() {
+    $('#shopping_cart').css(this.defaultAttributes).mouseover(function() {
       $(this).attr('src', '/images/shopping-cart-large.png');
     }).mouseout(function() {
       if ($this.enlarged) return;

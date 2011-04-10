@@ -25,7 +25,7 @@
         background: #000000;
         overflow: hidden;
         position: relative;
-        width: 960px; height: 960px;
+        width: 960px; height: 720px;
       }
 
     </style>
@@ -49,7 +49,7 @@
 
       <div id="port">
         <!-- Seven image layers, each layer slightly bigger than the one behind, making 'closer' layers move faster. -->
-        <div id="playlist" class="parallax-layer" style="width: 980px; height: 980px;">
+        <div id="playlist" class="parallax-layer" style="width: 980px; height: 735px;">
           <div class="song-title"
             data-url="http://eliasmoniker.com.s3.amazonaws.com/mp3/The%20Urge.mp3" 
             style="  background-position: -84px 0px; width: 121px; height: 37px; position: absolute; left: 350px; top: 62px;"></div>
@@ -79,17 +79,17 @@
             <div class="" id="play_button"></div>
           </div>
         </div>
-        <div id="paper_wrapper" class="parallax-layer" style="width: 980px; height: 980px;">
+        <div id="paper_wrapper" class="parallax-layer" style="width: 980px; height: 735px;">
           <div id="paper"></div>
         </div>
-        <div class="parallax-layer" style="width: 940px; height: 940px;">
+        <div class="dock-item parallax-layer" style="width: 960px; height: 720px;">
           <img id="shopping_cart" src="/images/shopping-cart-small.png" alt="" style="position: absolute;"/>
           <div id="paypal">
-            <h2>BUY THE ALBUM</h2>
+            <h2>buy the album</h2>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
               <input type="hidden" name="cmd" value="_s-xclick">
-              <input type="hidden" name="hosted_button_id" value="9HUBW3M6VP35J">
-              <input type="hidden" name="on0" value="Select media">
+              <input type="hidden" name="hosted_button_id" value="9hubw3m6vp35j">
+              <input type="hidden" name="on0" value="select media">
               <h4>SELECT MEDIA</h4>
               <select name="os0">
                 <option value="Vinyl + download">Vinyl + download $20.00</option>
@@ -102,7 +102,7 @@
           </div>
           
         </div>
-        <div class="parallax-layer" style="width: 930px; height: 930px;">
+        <div class="dock-item parallax-layer" style="width: 960px; height: 720px;">
           <div id="tv_wrapper">
             <img id="tv_screen" src="/images/tv-screen.png" alt="" style="z-index: 9998; position: absolute;"/>
             <div id="tv_canvas">
@@ -118,11 +118,11 @@
             <img id="tv" src="/images/tv-small-dark.png" alt="" style="position: absolute;"/>
           </div>
         </div>
-        <div class="parallax-layer" id="cover" style="width: 960px; height: 960px;">
-          <img src="/images/cover.png" alt="" style="position: absolute; top: 32px; left: 10px;"/>
+        <div class="parallax-layer" id="cover" style="width: 960px; height: 720px;">
+          <img src="/images/cover.png" alt="" style="position: absolute; top: 10px; left: 10px;"/>
         </div>
-        <div class="parallax-layer" id="background_wrapper" style="width: 900px; height: 900px;">
-          <img src="/images/background.png" id="background" alt="" style="position: absolute; top: -50px; left:-250px; width: 1274px; height: 960px; "/>
+        <div class="parallax-layer" id="background_wrapper" style="width: 900px; height: 675px;">
+          <img src="/images/background.png" id="background" alt="" style="position: absolute; top: -100px; left:-325px; width: 1274px; height: 960px; "/>
         </div>
 
       </div>
