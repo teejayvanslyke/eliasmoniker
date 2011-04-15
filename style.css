@@ -188,13 +188,13 @@ dd          { margin-left: 1.5em; }
 }
       
 .song-title.current {
-  background-image: url(/images/song-titles-selected.png);
+  background-image: url(http://eliasmoniker.com.s3.amazonaws.com/images/song-titles-selected.png);
 }
 .song-title.hover {
-  background-image: url(/images/song-titles-hover.png);
+  background-image: url(http://eliasmoniker.com.s3.amazonaws.com/images/song-titles-hover.png);
 }
 .song-title {
-  background-image: url(/images/song-titles.png);
+  background-image: url(http://eliasmoniker.com.s3.amazonaws.com/images/song-titles.png);
   cursor: pointer;
 }
 
@@ -207,7 +207,7 @@ dd          { margin-left: 1.5em; }
 }
 
 #play_button, #pause_button {
-       background-image: url(/images/play-pause.png); 
+       background-image: url(http://eliasmoniker.com.s3.amazonaws.com/images/play-pause.png); 
        position: absolute; 
        width: 80px; 
        height: 80px; 
@@ -251,6 +251,16 @@ dd          { margin-left: 1.5em; }
 }
 
 #facebook {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+}
+
+#text{
+  font-size: 0.85em;
+  font-weight: bold;
+  font-family: Futura, Helvetica, Sans-serif;
   position: absolute;
   top: 424px;
   left: 18px;

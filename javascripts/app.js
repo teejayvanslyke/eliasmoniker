@@ -1,38 +1,31 @@
 (function($) {
   var cache = [];
   // Arguments are image paths relative to the current page.
+  //
   $.preloadImages = function() {
-    var args_len = arguments.length;
+    function tryCallback() {
+      for (i in cache) {
+        if (!cache[i].complete) {
+          setTimeout(tryCallback, 100);
+          return;
+        }
+      }
+
+      callback();
+    }
+
+    var callback = arguments[arguments.length - 1];
+    var args_len = arguments.length - 1;
     for (var i = args_len; i--;) {
       var cacheImage = document.createElement('img');
       cacheImage.src = arguments[i];
       cache.push(cacheImage);
     }
+
+    setTimeout(tryCallback, 100);
   }
 })(jQuery)
 
-
-$.preloadImages(
-  "/images/background.png",
-  "/images/balloon-blue-256.png",
-  "/images/balloon-green-256.png",
-  "/images/balloon-purple-256.png",
-  "/images/bop.fm.png",
-  "/images/cover.png",
-  "/images/cover5.jpeg",
-  "/images/gear-grey.png",
-  "/images/header-text.png",
-  "/images/play-pause.png",
-  "/images/shopping-cart-large.png",
-  "/images/shopping-cart-small.png",
-  "/images/social-networks.png",
-  "/images/song-titles-hover.png",
-  "/images/song-titles-selected.png",
-  "/images/song-titles.png",
-  "/images/soon.png",
-  "/images/tv-large-light.png",
-  "/images/tv-small-dark.png"
-  )
 
 $(function(){
   var Player = {
@@ -73,7 +66,7 @@ $(function(){
 
   function gear(x, y, size) {
     var color = ['blue', 'purple', 'green', 'orange', 'grey'][Math.floor(Math.random() * 5)];
-    var gear = paper.image('/images/gear-grey.png', x - (size / 2), y - (size / 2), size, size);
+    var gear = paper.image('http://eliasmoniker.com.s3.amazonaws.com/images/gear-grey.png', x - (size / 2), y - (size / 2), size, size);
     return gear;
   }
 
@@ -117,7 +110,7 @@ $(function(){
   function balloon() {
     var color = [ 'blue', 'green', 'purple' ][Math.floor(Math.random() * 3)];
     var size  = [ 32, 64, 128 ][Math.floor(Math.random() * 3)];
-    var balloon =  paper.image('/images/balloon-'+color+'-256.png', Math.floor(Math.random() * 704) + 256, 960+size, size, size);
+    var balloon =  paper.image('http://eliasmoniker.com.s3.amazonaws.com/images/balloon-'+color+'-256.png', Math.floor(Math.random() * 704) + 256, 960+size, size, size);
     balloon.toBack();
     balloon.animate({y: -1 * size}, 20000, '<', function() { balloon.remove() } );
   }
@@ -156,7 +149,7 @@ $(function(){
     };
 
     this.show = function() {
-      $('#tv').attr('src', '/images/tv-large-light.png');
+      $('#tv').attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/tv-large-light.png');
       $('#tv, #tv_screen').animate({
         width: '700px',
         height: '520px',
@@ -176,17 +169,17 @@ $(function(){
     };
 
     this.hide = function() {
-      $('#tv').attr('src', '/images/tv-small-dark.png');
+      $('#tv').attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/tv-small-dark.png');
       $('#tv_canvas').hide();
       $('#tv, #tv_screen').animate(this.defaultAttributes, 100);
       $this.enlarged = false;
     };
 
     $('#tv, #tv_screen').css(this.defaultAttributes).mouseover(function() {
-      $(this).attr('src', '/images/tv-large-light.png');
+      $(this).attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/tv-large-light.png');
     }).mouseout(function() {
       if ($this.enlarged) return;
-      $(this).attr('src', '/images/tv-small-dark.png');
+      $(this).attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/tv-small-dark.png');
     }).click(function() {
       if (!$this.enlarged) {
         $this.show();
@@ -215,7 +208,7 @@ $(function(){
     };
 
     this.show = function() {
-      element.attr('src', '/images/shopping-cart-large.png');
+      element.attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/shopping-cart-large.png');
       element.animate({
         width: '644px',
         height: '657px',
@@ -230,17 +223,17 @@ $(function(){
     };
 
     this.hide = function() {
-      element.attr('src', '/images/shopping-cart-small.png');
+      element.attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/shopping-cart-small.png');
       $('#paypal').hide();
       element.animate(this.defaultAttributes, 100);
       $this.enlarged = false;
     };
 
     $('#shopping_cart').css(this.defaultAttributes).mouseover(function() {
-      $(this).attr('src', '/images/shopping-cart-large.png');
+      $(this).attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/shopping-cart-large.png');
     }).mouseout(function() {
       if ($this.enlarged) return;
-      $(this).attr('src', '/images/shopping-cart-small.png');
+      $(this).attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/shopping-cart-small.png');
     }).click(function() {
       if (!$this.enlarged) {
         $this.show();
@@ -279,6 +272,29 @@ $(function(){
   Cufon.replace('h3');
   Cufon.replace('h4');
 
-  $('#loader').hide();
+  $.preloadImages(
+    "http://eliasmoniker.com.s3.amazonaws.com/images/background.png",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/balloon-blue-256.png",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/balloon-green-256.png",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/balloon-purple-256.png",
+//    "http://eliasmoniker.com.s3.amazonaws.com/images/bop.fm.png",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/cover.png",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/cover5.jpeg",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/gear-grey.png",
+//    "http://eliasmoniker.com.s3.amazonaws.com/images/header-text.png",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/play-pause.png",
+ //   "http://eliasmoniker.com.s3.amazonaws.com/images/shopping-cart-large.png",
+  //  "http://eliasmoniker.com.s3.amazonaws.com/images/shopping-cart-small.png",
+ //   "http://eliasmoniker.com.s3.amazonaws.com/images/social-networks.png",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/song-titles-hover.png",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/song-titles-selected.png",
+    "http://eliasmoniker.com.s3.amazonaws.com/images/song-titles.png",
+//    "http://eliasmoniker.com.s3.amazonaws.com/images/soon.png",
+//    "http://eliasmoniker.com.s3.amazonaws.com/images/tv-large-light.png",
+//    "http://eliasmoniker.com.s3.amazonaws.com/images/tv-small-dark.png",
+
+    function() {
+      $('#loader').hide();
+    });
 });
 
