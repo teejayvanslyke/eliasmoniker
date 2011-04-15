@@ -250,3 +250,10 @@ dd          { margin-left: 1.5em; }
   display: none;
 }
 
+#facebook {
+  position: absolute;
+  top: 424px;
+  left: 18px;
+  z-index: 9999;
+}
+
