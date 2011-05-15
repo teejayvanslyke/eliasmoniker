@@ -1,11 +1,12 @@
 (function($) {
+  
   var cache = [];
   // Arguments are image paths relative to the current page.
   //
   $.preloadImages = function() {
     function tryCallback() {
       for (i in cache) {
-        if (!cache[i].complete) {
+        if (!cache[i].complete || !cache[i].loaded) {
           setTimeout(tryCallback, 100);
           return;
         }
@@ -19,6 +20,8 @@
     for (var i = args_len; i--;) {
       var cacheImage = document.createElement('img');
       cacheImage.src = arguments[i];
+      cacheImage.loaded = false;
+      cacheImage.onload = function(){ this.loaded = true};
       cache.push(cacheImage);
     }
 
