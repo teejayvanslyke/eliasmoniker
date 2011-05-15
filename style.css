@@ -63,7 +63,7 @@ html, body
 h1
 	{color: #111;}
 h2, h3, h4
-	{color: #ffffff;}
+	{font-family: Futura, Helvetica, Sans-serif; color: #ffffff;}
 a:focus, a:hover
 	{color: #a1c2e4;}
 a
@@ -234,6 +234,7 @@ dd          { margin-left: 1.5em; }
   height: 100%;
   position: fixed;
   z-index: 20000;
+  font-size: 4em;
   background-color: #000;
   text-align: center;
   padding-top:200px;

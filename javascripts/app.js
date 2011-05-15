@@ -129,12 +129,6 @@ $(function(){
 
   $('#background').hide().fadeIn(2000);
 
-  // Declare parallax on layers
-  jQuery('.parallax-layer').parallax({
-    mouseport: jQuery("#port"),
-    activeOutside: true
-  });
-
   Player.initializeJPlayer();
 
   $('.song-title:first').addClass('current');
@@ -278,9 +272,6 @@ $(function(){
   $('#shopping_cart').css({ 'z-index': 4 });
   $('#paypal').css({ 'z-index': 10001 });
 
-  Cufon.replace('h2');
-  Cufon.replace('h3');
-  Cufon.replace('h4');
 
   $.preloadImages(
     "http://eliasmoniker.com.s3.amazonaws.com/images/background.png",
@@ -304,9 +295,17 @@ $(function(){
 //    "http://eliasmoniker.com.s3.amazonaws.com/images/tv-small-dark.png",
 
     function() {
-      $('#loader').hide();
-      $('#jplayer').jPlayer('setMedia', { mp3: $('.song-title:first').data('url') });
+      if ($.browser.webkit) {
+        // Declare parallax on layers
+        $('.parallax-layer').parallax({
+          mouseport: $("#port"),
+          activeOutside: true
+        });
+      }
 
+      $('#loader').hide();
+
+      $('#jplayer').jPlayer('setMedia', { mp3: $('.song-title:first').data('url') });
     });
 });
 
