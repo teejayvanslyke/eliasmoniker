@@ -1,3 +1,8 @@
+//= require "cufon"
+//= require "jquery.jparallax.min.js"
+//= require "jplayer.min.js"
+//= require "raphael"
+
 (function($) {
   
   var cache = [];
@@ -300,6 +305,8 @@ $(function(){
 
     function() {
       $('#loader').hide();
+      $('#jplayer').jPlayer('setMedia', { mp3: $('.song-title:first').data('url') });
+
     });
 });
 
