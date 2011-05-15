@@ -90,24 +90,26 @@ $(function(){
   function updateProgressBar(percent) {
     var speed = 4.0;
 
-    function updateGear(gear, coef) {
-      var degrees = Math.floor(percent * 360 * coef * speed);
-      if (isNaN(degrees)) return;
-      gear.animate({ 'rotation': degrees }, 1000, '>');
-      //gear.attr({ 'rotation': degrees });
-    }
+    if ($.browser.webkit) {
+      function updateGear(gear, coef) {
+        var degrees = Math.floor(percent * 360 * coef * speed);
+        if (isNaN(degrees)) return;
+        gear.animate({ 'rotation': degrees }, 1000, '>');
+        //gear.attr({ 'rotation': degrees });
+      }
 
-    updateGear(gears.player, 1);
-    updateGear(gears.g1, -2);
-    updateGear(gears.g2, 2);
-    updateGear(gears.g3, -2);
-    updateGear(gears.g4, 4);
-    updateGear(gears.g5, -4);
-    updateGear(gears.g6, -2);
-    updateGear(gears.g7, 4);
-    updateGear(gears.g8, -2);
-    updateGear(gears.g9, 2);
-    updateGear(gears.g10, -2);
+      updateGear(gears.player, 1);
+      updateGear(gears.g1, -2);
+      updateGear(gears.g2, 2);
+      updateGear(gears.g3, -2);
+      updateGear(gears.g4, 4);
+      updateGear(gears.g5, -4);
+      updateGear(gears.g6, -2);
+      updateGear(gears.g7, 4);
+      updateGear(gears.g8, -2);
+      updateGear(gears.g9, 2);
+      updateGear(gears.g10, -2);
+    }
   }
 
   function balloon() {
