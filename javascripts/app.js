@@ -69,6 +69,14 @@ $(function(){
 
   var paper = null;
 
+  $("a.overlay").overlay({
+    onBeforeLoad: function() {
+                    var content = this.getOverlay().find(".content");
+                    content.load(this.getTrigger().attr('href'), function() {
+                      Cufon.replace('h2');
+                    });
+                  }
+  });
 
   paper = Raphael('paper', 960, 720);
 
@@ -295,7 +303,7 @@ $(function(){
 //    "http://eliasmoniker.com.s3.amazonaws.com/images/tv-small-dark.png",
 
     function() {
-      if ($.browser.webkit) {
+      if ($.browser.webkit && false) {
         // Declare parallax on layers
         $('.parallax-layer').parallax({
           mouseport: $("#port"),
@@ -306,6 +314,8 @@ $(function(){
       $('#loader').hide();
 
       $('#jplayer').jPlayer('setMedia', { mp3: $('.song-title:first').data('url') });
+
+      $('#buy_button a').trigger('click');
     });
 });
 

@@ -268,3 +268,93 @@ dd          { margin-left: 1.5em; }
   z-index: 9999;
 }
 
+#buy_button {
+  z-index: 9999;
+  font-family: Futura, Helvetica, Sans-serif;
+  font-size: 2.0em;
+  position: absolute;
+  top: 464px;
+  left: 18px;
+}
+
+#overlay {
+	/* must be initially hidden */
+	display:none;
+	
+	/* place overlay on top of other elements */
+	z-index:10000;
+	
+	/* styling */
+	background-color:#000000;
+  opacity: 0.95;
+	
+	width:640px;
+  height: 480px;
+	
+	/* CSS3 styling for latest browsers */
+	-moz-box-shadow:0 0 90px 5px #000;
+	-webkit-box-shadow: 0 0 90px #000;	
+  
+}
+
+#overlay .close {
+	background-image:url(/images/close.png);
+	position:absolute;
+	right:-15px;
+	top:-15px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+  
+}
+
+#overlay .content {
+  width: 640px;
+  height: 480px;
+  z-index: 10050;
+  opacity: 1.0;
+}
+
+#overlay .content h2 {
+  color: #cccccc;
+  font-size: 4.0em;
+  text-align: center;
+  padding: 0.25em;
+  margin-bottom: 0em;
+}
+
+#overlay .content .text {
+  font-family: Futura, Helvetica, Sans-serif;
+  text-align: center;
+  margin: 0.25em 10em;
+}
+
+#overlay .content #form_wrapper {
+  width: 600px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#overlay .content input#amount {
+  width: 1.5em;
+  font-size: 10em;
+  text-align: right;
+  font-family: Futura, Helvetica, Sans-serif;
+  background-color: #000;
+  border: none;
+	color:#767f8e;
+}
+
+#overlay .content input[type='submit'] {
+  font-family: Futura, Helvetica, Sans-serif;
+  background-color: #ffffff;
+  border: none;
+  font-size: 2.0em;
+  padding: 0.5em;
+}
+
+#overlay .content #amount_wrapper span {
+  font-size: 10em;
+  font-family: Futura, Helvetica, Sans-serif;
+}
+
