@@ -277,6 +277,16 @@ dd          { margin-left: 1.5em; }
   left: 18px;
 }
 
+#credits_button {
+  z-index: 9999;
+  font-family: Futura, Helvetica, Sans-serif;
+  font-size: 2.0em;
+  position: absolute;
+  top: 494px;
+  left: 18px;
+}
+
+
 #overlay {
 	/* must be initially hidden */
 	display:none;
@@ -358,3 +368,15 @@ dd          { margin-left: 1.5em; }
   font-family: Futura, Helvetica, Sans-serif;
 }
 
+#credits {
+  padding: 1.0em;
+}
+
+#credits p {
+  font-family: Futura, Helvetica, Sans-serif;
+  margin: 1.0em;
+}
+
+#overlay .content #credits h2 {
+  font-size: 2.0em;
+}

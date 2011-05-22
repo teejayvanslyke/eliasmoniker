@@ -315,7 +315,7 @@ $(function(){
 
       $('#jplayer').jPlayer('setMedia', { mp3: $('.song-title:first').data('url') });
 
-      $('#buy_button a').trigger('click');
+      //$('#buy_button a').trigger('click');
     });
 });
 
