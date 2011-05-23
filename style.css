@@ -329,14 +329,14 @@ dd          { margin-left: 1.5em; }
   color: #cccccc;
   font-size: 4.0em;
   text-align: center;
-  padding: 0.25em;
+  padding: 0.25em 0 0 0;
   margin-bottom: 0em;
 }
 
 #overlay .content .text {
   font-family: Futura, Helvetica, Sans-serif;
   text-align: center;
-  margin: 0.25em 10em;
+  margin: 0.25em 8em 1.0em 8em;
 }
 
 #overlay .content #form_wrapper {
@@ -359,7 +359,7 @@ dd          { margin-left: 1.5em; }
   font-family: Futura, Helvetica, Sans-serif;
   background-color: #ffffff;
   border: none;
-  font-size: 2.0em;
+  font-size: 5.0em;
   padding: 0.5em;
 }
 
