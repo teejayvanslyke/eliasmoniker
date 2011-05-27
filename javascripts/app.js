@@ -69,7 +69,29 @@ $(function(){
 
   var paper = null;
 
+  // adds an effect called "myEffect" to the overlay
+  $.tools.overlay.addEffect("basic", function(position, done) {
+
+    /*
+       - 'this' variable is a reference to the overlay API
+       - here we use jQuery's fadeIn() method to perform the effect
+       */
+    this.getOverlay().css(position).show();
+  },
+
+  // close function
+  function(done) {
+
+    // fade out the overlay
+    this.getOverlay().hide();
+  }
+  );
+  
+
   $("a.overlay").overlay({
+    onBeforeClose: function() {
+                    this.getOverlay().find(".content").children().remove();
+                   },
     onBeforeLoad: function() {
                     var content = this.getOverlay().find(".content");
                     content.load(this.getTrigger().attr('href'), function() {
@@ -161,30 +183,9 @@ $(function(){
     };
 
     this.show = function() {
-      $('#tv').attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/tv-large-light.png');
-      $('#tv, #tv_screen').animate({
-        width: '700px',
-        height: '520px',
-        bottom: '128px',
-        left: '130px',
-      }, 100, function() { 
-        $('#tv_canvas').fadeIn(100);
-      });
-
-      $('#tv').css({ 'z-index': 10000 });
-      $('#tv_canvas').css({ 'z-index': 9999 });
-      $('#tv_screen').css({ 'z-index': 9998 });
-
-      $('html, body').animate({scrollTop:0}, 100);
-      theShoppingCart.hide();
-      $this.enlarged = true;
     };
 
     this.hide = function() {
-      $('#tv').attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/tv-small-dark.png');
-      $('#tv_canvas').hide();
-      $('#tv, #tv_screen').animate(this.defaultAttributes, 100);
-      $this.enlarged = false;
     };
 
     $('#tv, #tv_screen').css(this.defaultAttributes).mouseover(function() {
@@ -206,10 +207,7 @@ $(function(){
 
   function shoppingCart() {
     var $this = this;
-    this.enlarged = false;
     var element = $('#shopping_cart');
-
-    $('#paypal').hide();
 
     this.defaultAttributes = {
       width: '162px',
@@ -220,18 +218,6 @@ $(function(){
     };
 
     this.show = function() {
-      element.attr('src', 'http://eliasmoniker.com.s3.amazonaws.com/images/shopping-cart-large.png');
-      element.animate({
-        width: '644px',
-        height: '657px',
-        left: '130px',
-        'z-index': 10000
-      }, 100, function() {
-        $('#paypal').fadeIn();
-      });
-      $('html, body').animate({scrollTop:0}, 100);
-      theTV.hide();
-      $this.enlarged = true;
     };
 
     this.hide = function() {
