@@ -54,7 +54,7 @@ $(function(){
           if (nextSongElement.length > 0) {
             $('.song-title').removeClass('current');
             nextSongElement.addClass('current');
-            Player.play(nextSongElement.data('url'));
+            Player.play(nextSongElement.attr('data-url'));
           }
                }
       });
@@ -163,7 +163,7 @@ $(function(){
 
   $('.song-title:first').addClass('current');
   var currentSong = $('.song-title.current');
-  $('#jplayer').jPlayer('setMedia', { mp3: currentSong.data('url') });
+  $('#jplayer').jPlayer('setMedia', { mp3: currentSong.attr('data-url') });
 
   $('#port').mouseenter();
 
@@ -253,7 +253,7 @@ $(function(){
   }).click(function() {
     $('.song-title').removeClass('current');
     $(this).addClass('current');
-    $('#jplayer').jPlayer('setMedia', { mp3: $(this).data('url') });
+    $('#jplayer').jPlayer('setMedia', { mp3: $(this).attr('data-url') });
       $('#jplayer').jPlayer('play');
   });
 
@@ -299,7 +299,7 @@ $(function(){
 
       $('#loader').hide();
 
-      $('#jplayer').jPlayer('setMedia', { mp3: $('.song-title:first').data('url') });
+      $('#jplayer').jPlayer('setMedia', { mp3: $('.song-title:first').attr('data-url') });
 
       //$('#buy_button a').trigger('click');
     });
