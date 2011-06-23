@@ -178,7 +178,7 @@ $(function(){
       width: '170px',
       height: '125px',
       bottom: '32px',
-      left: '222px',
+      left: '10px',
       'z-index': 4
     };
 
