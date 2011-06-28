@@ -213,7 +213,7 @@ $(function(){
       width: '162px',
       height: '166px',
       bottom: '16px',
-      left: '20px',
+      left: '200px',
       'z-index': 4
     };
 
