@@ -95,7 +95,6 @@ $(function(){
     onBeforeLoad: function() {
                     var content = this.getOverlay().find(".content");
                     content.load(this.getTrigger().attr('href'), function() {
-                      Cufon.replace('h2');
                     });
                   }
   });
@@ -265,6 +264,34 @@ $(function(){
   $('#tv').css({ 'z-index': 4 });
   $('#shopping_cart').css({ 'z-index': 4 });
   $('#paypal').css({ 'z-index': 10001 });
+
+
+
+  function loadPage(hash) {
+    var url = '/'+hash.replace('#', '')+'.html';
+    $('#content_panel_content #wrapper').fadeOut(function() {
+      $('#content_panel_content #wrapper').load(url, function() {
+        $('#content_panel_content #wrapper').fadeIn();
+      });
+    });
+
+    window.location.hash = hash;
+  }
+
+  $('#content_panel_content #wrapper a').live('click', function() {
+    if ($(this).attr('target') == '_blank') return true;
+    loadPage($(this).attr('href'));
+    return false;
+  });
+
+  if (window.location.hash) {
+    loadPage(window.location.hash)
+  } else {
+    loadPage('#main')
+  }
+
+                      Cufon.replace('h4');
+                      Cufon.replace('ul.nav li a');
 
 
   $.preloadImages(
