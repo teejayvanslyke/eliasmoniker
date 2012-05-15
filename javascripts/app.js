@@ -284,11 +284,6 @@ $(function(){
     return false;
   });
 
-  if (window.location.hash) {
-    loadPage(window.location.hash)
-  } else {
-    loadPage('#main')
-  }
 
                       Cufon.replace('h4');
                       Cufon.replace('ul.nav li a');
