@@ -277,13 +277,15 @@ dd          { margin-left: 1.5em; }
   left: 18px;
 }
 
-#credits_button {
+#download-button {
   z-index: 9999;
-  font-family: Futura, Helvetica, Sans-serif;
-  font-size: 2.0em;
   position: absolute;
-  top: 494px;
-  left: 18px;
+  top: 354px;
+  left: 36px;
+}
+
+#download-button a {
+  color: #E5E5E5;
 }
 
 
