@@ -648,3 +648,9 @@ ul.fff {
     height: 18px;
 }
 
+.teejay-vanslyke-logo {
+  z-index: 999999;
+  position: absolute;
+  right: 0;
+  top: 650px;
+}
